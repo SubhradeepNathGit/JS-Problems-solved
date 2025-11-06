@@ -1,4 +1,4 @@
-# JavaScript Programming Test Questions
+# JavaScript Programming Practice Test Questions
 
 ## 1. String Reversal
 Write a function that takes a string as input and returns the reverse of the string.
