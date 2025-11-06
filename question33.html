@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirect Page</title>
+</head>
+<body>
+  <h2>Enter URL to Redirect</h2>
+  <input type="text" id="urlInput" placeholder="https://google.com">
+  <button onclick="redirect()">Go</button>
+
+  <script>
+    function redirect() {
+      const url = document.getElementById('urlInput').value;
+      if (url) {
+        window.location.href = url; // Redirects browser
+      } else {
+        alert('Please enter a URL');
+      }
+    }
+  </script>
+</body>
+</html>

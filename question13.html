@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiply & Divide</title>
+</head>
+<body style="margin:0; height:100vh; display:flex; justify-content:center; align-items:center; background:lab(44.24% 27.26 11.97); font-family:Arial,sans-serif;">
+
+<div style="background:white; padding:40px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.2); text-align:center; width:300px;">
+  <h2 style="margin-bottom:20px; color:#333;">Multiply & Divide</h2>
+
+  <input id="num1" type="number" placeholder="Number 1" style="width:80%; padding:10px; margin:5px 0; border-radius:6px; border:1px solid #ccc;"><br>
+  <input id="num2" type="number" placeholder="Number 2" style="width:80%; padding:10px; margin:5px 0; border-radius:6px; border:1px solid #ccc;"><br>
+
+  <button id="multiplyBtn" style="width:40%; padding:10px; margin:10px 5px 0 0; border:none; border-radius:6px; background:hsl(0, 62%, 70%); color:white; cursor:pointer;">Multiply</button>
+  <button id="divideBtn" style="width:40%; padding:10px; margin:10px 0 0 0; border:none; border-radius:6px; background:#0c7bd5; color:white; cursor:pointer;">Divide</button>
+
+  <div id="result" style="margin-top:20px; font-weight:bold; color:hwb(0 62% 16%);"></div>
+</div>
+
+<script>
+(() => {
+  const num1 = document.getElementById('num1');
+  const num2 = document.getElementById('num2');
+  const result = document.getElementById('result');
+
+  const getNumbers = () => {
+    const a = +num1.value;
+    const b = +num2.value;
+    return (isNaN(a) || isNaN(b)) ? null : { a, b };
+  };
+
+  const displayResult = text => result.textContent = text;
+
+  document.getElementById('multiplyBtn').addEventListener('click', () => {
+    const nums = getNumbers();
+    if (!nums) return displayResult("Please enter valid numbers!");
+    displayResult(`Multiplication: ${nums.a * nums.b}`);
+  });
+
+  document.getElementById('divideBtn').addEventListener('click', () => {
+    const nums = getNumbers();
+    if (!nums) return displayResult("Please enter valid numbers!");
+    if (nums.b === 0) return displayResult("Cannot divide by zero!");
+    displayResult(`Division: ${nums.a / nums.b}`);
+  });
+})();
+</script>
+
+</body>
+</html>
